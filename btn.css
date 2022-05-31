@@ -1,0 +1,21 @@
+.test{
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 300px;
+    margin-top: 300px;
+    margin-left: 700px;
+}
+
+.test_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: 130px;
+    height: 30px;
+    margin: 10px;
+}
