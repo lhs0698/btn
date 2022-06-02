@@ -3,7 +3,7 @@
 
 
 
-var inter3
+
 var inter
 var inter2
 
