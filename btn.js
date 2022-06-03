@@ -4,19 +4,26 @@
 
 
 
-var inter
-var inter2
+var inter;
+var inter2;
 
-function changecolor_click(){
+function changecolor_click(a, btn){
+    console.log(a);
+    console.log(btn);
 
-    inter = setInterval(function color(){
-        document.body.style.backgroundColor = "aqua"
-    },500)
-    inter2 = setInterval(function color(){
-        document.body.style.backgroundColor = "pink"
-    },700)
+    // inter = setInterval(function color(){
+    //     document.body.style.backgroundColor = "aqua"
+    // },500);
+    // inter2 = setInterval(function color(){
+    //     document.body.style.backgroundColor = "pink"
+    // },700);
 
-    console.log(changecolor_click)
+    let textInput = document.getElementById('setColor');
+    let colorValue = textInput.value;
+
+    document.body.style.backgroundColor = colorValue;
+
+
 } 
 
 function stop_click(){
