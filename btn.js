@@ -7,25 +7,28 @@
 var inter;
 var inter2;
 
-function changecolor_click(){
+function changecolor_click(a, btn){
+    console.log(a);
+    console.log(btn);
 
-    inter = setInterval(function color(){
-        document.body.style.backgroundColor = "aqua"
-    },500);
-    inter2 = setInterval(function color(){
-        document.body.style.backgroundColor = "pink"
-    },700);
+    // inter = setInterval(function color(){
+    //     document.body.style.backgroundColor = "aqua"
+    // },500);
+    // inter2 = setInterval(function color(){
+    //     document.body.style.backgroundColor = "pink"
+    // },700);
+
+    let textInput = document.getElementById('setColor');
+    let colorValue = textInput.value;
+
+    document.body.style.backgroundColor = colorValue;
+
 
 } 
 
-function getInters() {
-    return [inter, inter2];
-}
-
 function stop_click(){
-    let inters = getInters();
-    clearInterval(inters[0]);
-    clearInterval(inters[1]);
+    clearInterval(inter)
+    clearInterval(inter2)
     document.body.style.backgroundColor = "white"
 }
 // =======
