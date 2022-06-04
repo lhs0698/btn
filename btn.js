@@ -32,10 +32,7 @@ function stop_click(){
 }
 // stop 버튼 이벤트
 
-
-let timer;
-let curtime;
-
+// today_button
 function today_click(){
     const time = new Date();
     const year = time.getFullYear();
@@ -45,16 +42,18 @@ function today_click(){
     const minute = time.getMinutes();
     const second = time.getSeconds();
 
-    timer = [year,month,date,hour,minute,second];
+    let timer = [year,month,date,hour,minute,second];
     
     // alert(timer);
     // console.log(timer[2]);
 
     let curtime = timer[3];
     console.log(curtime);
-    if (curtime >= 3){
+
+    if (curtime >= 1){
         document.body.style.backgroundColor = "yellow"
     }else {
         document.body.style.backgroundColor = "green"
     }
 }
+// today_button

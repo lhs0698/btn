@@ -9,13 +9,25 @@
 </head>
 <body>
     <div class="test">
-        <class="test_box">
-            <!-- <input type="text" id="setColor" /> -->
-            <button class="push_button" onclick="changecolor_click()">push</button>
-            <button class="stop_button" onclick="stop_click()">stop</button>
-            <button class="today_button" onclick="today_click()">today</button>
+        <div class="test_box">
+            <div>
+                <button class="push_button" onclick="changecolor_click()">push</button>
+            </div>
+            <div>
+                <button class="stop_button" onclick="stop_click()">stop</button>
+            </div>
+            <div>
+                <button class="today_button" onclick="today_click()">today</button>
+            </div>
+            <div id="LOGIN">
+                <input type="text" id="login_ID" placeholder="ID">
+                <input type="password" id="login_PW" placeholder="PASSWORD">
+                <button id="login">로그인</button>
+                <button id="logout">로그아웃</button>
+            </div>
         </div>
     </div>
     <script src="btn.js"></script>
 </body>
 </html>
+``
