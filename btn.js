@@ -47,13 +47,14 @@ function today_click(){
     // alert(timer);
     // console.log(timer[2]);
 
-    let curtime = timer[3];
+    let curtime = timer[4];
     console.log(curtime);
 
-    if (curtime >= 1){
+    if (curtime >= 20){
         document.body.style.backgroundColor = "yellow"
     }else {
         document.body.style.backgroundColor = "green"
     }
 }
 // today_button
+
