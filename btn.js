@@ -134,6 +134,3 @@ loginBtn.addEventListener("click", function(){
     //     document.body.append(div);
     // }
 })
-
-
-
