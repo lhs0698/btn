@@ -119,18 +119,33 @@ loginBtn.addEventListener("click", function(){
     }else {
         console.log("fail!");
     }
-    
+
     let {PW : oldPW} = LOGIN;
+    
     if(oldPW === newPW){
         console.log("login!!");
     }else{
         console.log("fail!!")
     }
+    if (oldID != newID){
+        var div = document.querySelector(".message");
+        div.innerHTML = '<div>ID가 틀렸습니다</div>'
+    }else{
+        document.querySelector('.message').style.display = 'none';
+    }
 
+    if (oldPW != newPW){
+        var divs = document.querySelector(".messages");
+        divs.innerHTML = '<div>PASSWORD가 틀렸습니다</div>'
+    }else{
+        document.querySelector('.messages').style.display = 'none';
+    }
+    // 왜 반복이 안될까?????????????????????? 조건 실행 반복은 어떻게?
 
-    // if (ID === LOGIN.ID){
+    // if (oldID === LOGIN.ID){
     //     let div = document.createElement('div');
     //     div.innerHTML = '<h1>heee</h1>'
     //     document.body.append(div);
+    //     console.log(div)
     // }
 })
