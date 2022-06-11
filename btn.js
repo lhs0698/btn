@@ -103,6 +103,8 @@ function stop_click(){
 
 let type;
 let loginBtn = document.querySelector("#login");
+let loginBtns = document.querySelector("#logout");
+let nextpage = "btn2.html"; // location.href 페이지 이동
 
 loginBtn.addEventListener("click", function(){
     let LOGIN = {
@@ -111,7 +113,6 @@ loginBtn.addEventListener("click", function(){
     }
     let newID = document.querySelector('#login_ID').value;
     let newPW = document.querySelector("#login_PW").value;
-    // console.log(LOGIN);
 
     let {ID: oldID} = LOGIN;
     if(oldID === newID){
@@ -127,6 +128,7 @@ loginBtn.addEventListener("click", function(){
     }else{
         console.log("fail!!")
     }
+    
     if (oldID != newID){
         var div = document.querySelector(".message");
         div.innerHTML = '<div>ID가 틀렸습니다</div>'
@@ -140,7 +142,9 @@ loginBtn.addEventListener("click", function(){
     }else{
         document.querySelector('.messages').style.display = 'none';
     }
-    // 왜 반복이 안될까?????????????????????? 조건 실행 반복은 어떻게?
+    
+    // location.reload(); = 새로고침
+    // 왜 반복이 안될까?????????????????????? 조건 실행 반복은 어떻게? for문?
 
     // if (oldID === LOGIN.ID){
     //     let div = document.createElement('div');
@@ -149,3 +153,9 @@ loginBtn.addEventListener("click", function(){
     //     console.log(div)
     // }
 })
+
+// loginBtns.addEventListener("click",function(){
+//     location.reload();
+// })
+
+
