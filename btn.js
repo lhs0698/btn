@@ -111,39 +111,62 @@ loginBtn.addEventListener("click", function(){
         ID : "alta",
         PW : "alta0204",
     }
+
     let newID = document.querySelector('#login_ID').value;
     let newPW = document.querySelector("#login_PW").value;
 
-    let {ID: oldID} = LOGIN;
-    if(oldID === newID){
-        console.log("login!");
-    }else {
-        console.log("fail!");
-    }
+    let {ID: oldID, PW : oldPW} = LOGIN;
+    // if(oldID === newID){
+    //     console.log("login!");
+    // }else {
+    //     console.log("fail!");
+    // }
+    var sole = oldID === newID;
+    sole ? console.log("login!") : console.log("fail!");
+    // sole이 true면 왼쪽 fals면 오른쪽 실행
+    //삼항 연산자
+    console.log(sole)
+    // if(oldPW === newPW){
+    //     console.log("login!!");
+    // }else{
+    //     console.log("fail!!")
+    // }
+    var soled = oldPW === newPW;
+    soled ? console.log("login!!") : console.log("fail!!!!!!");
+    console.log(soled)
+    // 삼항 연산자
+    
 
-    let {PW : oldPW} = LOGIN;
+    // let val = newID;
+    // let vals = newPW;
     
-    if(oldPW === newPW){
-        console.log("login!!");
-    }else{
-        console.log("fail!!")
-    }
+    // if (LOGIN === ){
+    //     location.href = "btn2.html";
+    // }
     
-    if (oldID != newID){
-        var div = document.querySelector(".message");
-        div.innerHTML = '<div>ID가 틀렸습니다</div>'
-    }else{
-        document.querySelector('.message').style.display = 'none';
-    }
+    // if (oldID != newID){
+    //     var div = document.querySelector(".message");
+    //     div.innerHTML = '<div>ID가 틀렸습니다</div>'
+    // }else{
+    //     document.querySelector('.message').style.display = 'none';
+    // }
+    var con = oldID != newID;
+    var div = document.querySelector(".message");
+    con ? div.innerHTML = '<div>ID가 틀렸습니다</div>' : document.querySelector('.message').style.display = 'none';
+    // 삼항 연산자 사용
 
-    if (oldPW != newPW){
-        var divs = document.querySelector(".messages");
-        divs.innerHTML = '<div>PASSWORD가 틀렸습니다</div>'
-    }else{
-        document.querySelector('.messages').style.display = 'none';
-    }
-    
-    // location.reload(); = 새로고침
+    // if (oldPW != newPW){
+    //     var divs = document.querySelector(".messages");
+    //     divs.innerHTML = '<div>PASSWORD가 틀렸습니다</div>'
+    // }else{
+    //     document.querySelector('.messages').style.display = 'none';
+    // }
+    var cons = oldPW != newPW;
+    var divs = document.querySelector(".messages");
+    cons ? divs.innerHTML = '<div>PASSWORD가 틀렸습니다</div>' : document.querySelector('.messages').style.display = 'none'; 
+    // 삼항 연산자 사용
+
+    // location.reload(); = 새로고침 location.href 페이지 이동
     // 왜 반복이 안될까?????????????????????? 조건 실행 반복은 어떻게? for문?
 
     // if (oldID === LOGIN.ID){
@@ -158,4 +181,17 @@ loginBtn.addEventListener("click", function(){
 //     location.reload();
 // })
 
+var input = document.getElementById("login_PW");
 
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("login").click();
+    console.log(event)
+  }
+})
+// PW input 자리에  enter키 적용
