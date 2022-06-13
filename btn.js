@@ -107,6 +107,12 @@ let loginBtns = document.querySelector("#logout");
 let nextpage = "btn2.html"; // location.href 페이지 이동
 
 loginBtn.addEventListener("click", function(){
+    var div = document.querySelector(".message");
+    var div2 = document.querySelector(".messages");
+    div.innerHTML = div2.innerHTML = ''; //초기화
+
+
+
     let LOGIN = {
         ID : "alta",
         PW : "alta0204",
@@ -121,19 +127,19 @@ loginBtn.addEventListener("click", function(){
     // }else {
     //     console.log("fail!");
     // }
-    var sole = oldID === newID;
-    sole ? console.log("login!") : console.log("fail!");
+    //var sole = oldID === newID;
+    // sole ? console.log("login!") : console.log("fail!");
     // sole이 true면 왼쪽 fals면 오른쪽 실행
     //삼항 연산자
-    console.log(sole)
+    // console.log(sole)
     // if(oldPW === newPW){
     //     console.log("login!!");
     // }else{
     //     console.log("fail!!")
     // }
-    var soled = oldPW === newPW;
-    soled ? console.log("login!!") : console.log("fail!!!!!!");
-    console.log(soled)
+    //var soled = oldPW === newPW;
+    // soled ? console.log("login!!") : console.log("fail!!!!!!");
+    // console.log(soled)
     // 삼항 연산자
     
 
@@ -150,9 +156,9 @@ loginBtn.addEventListener("click", function(){
     // }else{
     //     document.querySelector('.message').style.display = 'none';
     // }
-    var con = oldID != newID;
-    var div = document.querySelector(".message");
-    con ? div.innerHTML = '<div>ID가 틀렸습니다</div>' : document.querySelector('.message').style.display = 'none';
+    //var con = oldID != newID;
+    //var div = document.querySelector(".message");
+    //con ? div.innerHTML = '<div>ID가 틀렸습니다</div>' : document.querySelector('.message').style.display = 'none';
     // 삼항 연산자 사용
 
     // if (oldPW != newPW){
@@ -161,9 +167,9 @@ loginBtn.addEventListener("click", function(){
     // }else{
     //     document.querySelector('.messages').style.display = 'none';
     // }
-    var cons = oldPW != newPW;
-    var divs = document.querySelector(".messages");
-    cons ? divs.innerHTML = '<div>PASSWORD가 틀렸습니다</div>' : document.querySelector('.messages').style.display = 'none'; 
+    //var cons = oldPW != newPW;
+    //var divs = document.querySelector(".messages");
+    //cons ? divs.innerHTML = '<div>PASSWORD가 틀렸습니다</div>' : document.querySelector('.messages').style.display = 'none'; 
     // 삼항 연산자 사용
 
     // location.reload(); = 새로고침 location.href 페이지 이동
@@ -175,6 +181,47 @@ loginBtn.addEventListener("click", function(){
     //     document.body.append(div);
     //     console.log(div)
     // }
+
+    if(oldID === newID) {
+        // 아이디 일치
+        if(oldPW === newPW) {
+            //아이디, 비밀번호 모두 일치
+            type = 'all'
+        } else {
+            // 아이디 일치, 비밀번호 불일치
+            type = 'pw_not'
+        }
+    } else {
+        // 아이디 불일치
+        if(oldPW === newPW) {
+            // 아이디 불일치, 비밀번호는일치
+            type = 'id_not'
+        } else {
+            // 아이디,비밀번호 모두 불일치
+            type = 'all_not'
+        }
+    }
+
+
+
+    // swtich case문으로 변경
+    if(type === 'all') {
+        console.log('다음 페이지 이동')
+    } else if(type === 'all_not') {
+        console.log('모두 틀림')
+        document.querySelector('#login_ID').value = '';
+        document.querySelector('#login_PW').value = '';
+        div.innerHTML = '아이디 틀림';
+        div2.innerHTML = '비밀번호 틀림';
+
+    } else if(type === 'id_not') {
+        document.querySelector('#login_ID').value = '';
+        div.innerHTML = '아이디 틀림';
+
+    } else if(type === 'pw_not') {
+        document.querySelector('#login_PW').value = '';
+        div2.innerHTML = '비밀번호 틀림';
+    }
 })
 
 // loginBtns.addEventListener("click",function(){
