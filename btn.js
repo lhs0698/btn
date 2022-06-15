@@ -201,29 +201,46 @@ loginBtn.addEventListener("click", function(){
             type = 'all_not'
         }
     }
-
-
-
     // swtich case문으로 변경
-    if(type === 'all') {
-        console.log('다음 페이지 이동')
-    } else if(type === 'all_not') {
-        console.log('모두 틀림')
-        document.querySelector('#login_ID').value = '';
-        document.querySelector('#login_PW').value = '';
-        div.innerHTML = '아이디 틀림';
-        div2.innerHTML = '비밀번호 틀림';
+//     if(type === 'all') {
+//         console.log('다음 페이지 이동')
+//     } else if(type === 'all_not') {
+//         console.log('모두 틀림')
+//         document.querySelector('#login_ID').value = '';
+//         document.querySelector('#login_PW').value = '';
+//         div.innerHTML = '아이디 틀림';
+//         div2.innerHTML = '비밀번호 틀림';
 
-    } else if(type === 'id_not') {
-        document.querySelector('#login_ID').value = '';
-        div.innerHTML = '아이디 틀림';
+//     } else if(type === 'id_not') {
+//         document.querySelector('#login_ID').value = '';
+//         div.innerHTML = '아이디 틀림';
 
-    } else if(type === 'pw_not') {
-        document.querySelector('#login_PW').value = '';
-        div2.innerHTML = '비밀번호 틀림';
+//     } else if(type === 'pw_not') {
+//         document.querySelector('#login_PW').value = '';
+//         div2.innerHTML = '비밀번호 틀림';
+//     }
+// })
+
+    switch (type) {
+        case "all":
+            console.log("다음 페이지 이동");
+            location.href = "btn2.html";
+            break;
+        case "all_not":
+            console.log("모두 틀림");
+            div.innerHTML = "아이디 틀림";
+            div2.innerHTML = "비밀번호 틀림";
+            break;
+        case "id_not":
+            console.log("아이디 틀림");
+            div.innerHTML = "아이디 틀림";
+            break;
+        case "pw_not":
+            console.log("비밀번호 틀림");
+            div2.innerHTML = "비밀번호 틀림";
+            break;
     }
 })
-
 // loginBtns.addEventListener("click",function(){
 //     location.reload();
 // })
