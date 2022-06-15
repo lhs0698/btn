@@ -106,81 +106,23 @@ let loginBtn = document.querySelector("#login");
 let loginBtns = document.querySelector("#logout");
 let nextpage = "btn2.html"; // location.href 페이지 이동
 
-loginBtn.addEventListener("click", function(){
-    var div = document.querySelector(".message");
-    var div2 = document.querySelector(".messages");
+
+// 함수 표현식(호이스팅 안됨!!)
+const loginCheck = () => {
+    let div = document.querySelector(".message");
+    let div2 = document.querySelector(".messages");
+    
     div.innerHTML = div2.innerHTML = ''; //초기화
-
-
 
     let LOGIN = {
         ID : "alta",
         PW : "alta0204",
     }
+    let {ID: oldID, PW : oldPW} = LOGIN;
+
 
     let newID = document.querySelector('#login_ID').value;
     let newPW = document.querySelector("#login_PW").value;
-
-    let {ID: oldID, PW : oldPW} = LOGIN;
-    // if(oldID === newID){
-    //     console.log("login!");
-    // }else {
-    //     console.log("fail!");
-    // }
-    //var sole = oldID === newID;
-    // sole ? console.log("login!") : console.log("fail!");
-    // sole이 true면 왼쪽 fals면 오른쪽 실행
-    //삼항 연산자
-    // console.log(sole)
-    // if(oldPW === newPW){
-    //     console.log("login!!");
-    // }else{
-    //     console.log("fail!!")
-    // }
-    //var soled = oldPW === newPW;
-    // soled ? console.log("login!!") : console.log("fail!!!!!!");
-    // console.log(soled)
-    // 삼항 연산자
-    
-
-    // let val = newID;
-    // let vals = newPW;
-    
-    // if (LOGIN === ){
-    //     location.href = "btn2.html";
-    // }
-    
-    // if (oldID != newID){
-    //     var div = document.querySelector(".message");
-    //     div.innerHTML = '<div>ID가 틀렸습니다</div>'
-    // }else{
-    //     document.querySelector('.message').style.display = 'none';
-    // }
-    //var con = oldID != newID;
-    //var div = document.querySelector(".message");
-    //con ? div.innerHTML = '<div>ID가 틀렸습니다</div>' : document.querySelector('.message').style.display = 'none';
-    // 삼항 연산자 사용
-
-    // if (oldPW != newPW){
-    //     var divs = document.querySelector(".messages");
-    //     divs.innerHTML = '<div>PASSWORD가 틀렸습니다</div>'
-    // }else{
-    //     document.querySelector('.messages').style.display = 'none';
-    // }
-    //var cons = oldPW != newPW;
-    //var divs = document.querySelector(".messages");
-    //cons ? divs.innerHTML = '<div>PASSWORD가 틀렸습니다</div>' : document.querySelector('.messages').style.display = 'none'; 
-    // 삼항 연산자 사용
-
-    // location.reload(); = 새로고침 location.href 페이지 이동
-    // 왜 반복이 안될까?????????????????????? 조건 실행 반복은 어떻게? for문?
-
-    // if (oldID === LOGIN.ID){
-    //     let div = document.createElement('div');
-    //     div.innerHTML = '<h1>heee</h1>'
-    //     document.body.append(div);
-    //     console.log(div)
-    // }
 
     if(oldID === newID) {
         // 아이디 일치
@@ -201,25 +143,6 @@ loginBtn.addEventListener("click", function(){
             type = 'all_not'
         }
     }
-    // swtich case문으로 변경
-//     if(type === 'all') {
-//         console.log('다음 페이지 이동')
-//     } else if(type === 'all_not') {
-//         console.log('모두 틀림')
-//         document.querySelector('#login_ID').value = '';
-//         document.querySelector('#login_PW').value = '';
-//         div.innerHTML = '아이디 틀림';
-//         div2.innerHTML = '비밀번호 틀림';
-
-//     } else if(type === 'id_not') {
-//         document.querySelector('#login_ID').value = '';
-//         div.innerHTML = '아이디 틀림';
-
-//     } else if(type === 'pw_not') {
-//         document.querySelector('#login_PW').value = '';
-//         div2.innerHTML = '비밀번호 틀림';
-//     }
-// })
 
     switch (type) {
         case "all":
@@ -239,13 +162,16 @@ loginBtn.addEventListener("click", function(){
             console.log("비밀번호 틀림");
             div2.innerHTML = "비밀번호 틀림";
             break;
+        default:
+            div2.innerHTML = "";
+            break;
     }
-})
-// loginBtns.addEventListener("click",function(){
-//     location.reload();
-// })
+}
+    
 
-var input = document.getElementById("login_PW");
+loginBtn.addEventListener("click", loginCheck)
+
+let input = document.getElementById("login_PW");
 
 // Execute a function when the user presses a key on the keyboard
 input.addEventListener("keypress", function(event) {
@@ -254,8 +180,7 @@ input.addEventListener("keypress", function(event) {
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
-    document.getElementById("login").click();
-    console.log(event)
-  }
+    loginCheck()
+}
 })
 // PW input 자리에  enter키 적용
